@@ -73,33 +73,39 @@ const Navigation = () => {
         <div className="flex items-center space-x-3">
           <Avatar
             alt="username"
-            src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"
+            //src="https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_960_720.png"
+            src="https://pbs.twimg.com/profile_images/1700112215695560704/RKKebm_W_400x400.jpg"
           />
           <div>
-            <span>Aftab Alam</span>
-            <span className="opacity-70">@aftabalam507</span>
+            <div className="font-medium">
+              <span>Aftab Alam</span>
+            </div>
+            <div>
+              <span className="opacity-70">@aftabalam507</span>
+            </div>
           </div>
-
-          <Button
-            id="basic-button"
-            aria-controls={open ? "basic-menu" : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
-            onClick={handleClick}
-          >
-            <MoreHorizIcon />
-          </Button>
-          <Menu
-            id="basic-menu"
-            anchorEl={anchorEl}
-            open={open}
-            onClose={handleClose}
-            MenuListProps={{
-              "aria-labelledby": "basic-button",
-            }}
-          >
-            <MenuItem onClick={handleLogout}>Logout</MenuItem>
-          </Menu>
+          <div className="px-12">
+            <Button
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              <MoreHorizIcon />
+            </Button>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </Menu>
+          </div>
         </div>
       </div>
     </div>
