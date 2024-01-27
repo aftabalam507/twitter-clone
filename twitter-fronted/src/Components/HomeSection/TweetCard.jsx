@@ -128,12 +128,12 @@ const TweetCard = () => {
                 } space-x-3 flex items-center`}
               >
                 {true ? (
-                  <FavoriteBorderIcon
+                  <FavoriteIcon
                     className="cursor-pointer"
                     onClick={handleLikeTweet}
                   />
                 ) : (
-                  <FavoriteIcon
+                  <FavoriteBorderIcon
                     className="cursor-pointer"
                     onClick={handleLikeTweet}
                   />

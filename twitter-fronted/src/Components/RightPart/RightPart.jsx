@@ -1,6 +1,8 @@
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { Button } from "@mui/material";
 
 const RightPart = () => {
   const handleChangeTheme = () => {
@@ -22,6 +24,37 @@ const RightPart = () => {
           onClick={handleChangeTheme}
         />
       </div>
+
+      <section className="my-5">
+        <h1 className="text-xl font-bold">Get Verified</h1>
+        <h1 className="font-bold my-2">Subscribe to unlock new Features</h1>
+        <Button
+          variant="contained"
+          sx={{ padding: "10px", paddingX: "20px", borderRadius: "25px" }}
+        >
+          Get Vefified
+        </Button>
+      </section>
+
+      <section className="mt-7 space-y-5">
+        <h1 className="font-bold text-xl py-1">What's happening</h1>
+
+        <div>
+          <p className="text-sm">ICC Cricket World Cup .LIVE</p>
+          <p className="font-bold">India vs Australia</p>
+        </div>
+
+        {[1, 1, 1].map((item) => (
+          <div className="flex justify-between w-full">
+            <div>
+              <p>Entertainment . Trending</p>
+              <p className="font-bold">#TheMarvels</p>
+              <p>34.3k Tweets</p>
+            </div>
+            <MoreHorizIcon />
+          </div>
+        ))}
+      </section>
     </div>
   );
 };
