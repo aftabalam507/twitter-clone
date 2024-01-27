@@ -20,9 +20,7 @@ const HomePage = () => {
       </Grid>
 
       <Grid item xs={0} lg={3} className="hidden lg:block w-full relative">
-        <p className="text-center">
-          <RightPart />
-        </p>
+        <RightPart />
       </Grid>
     </Grid>
   );
