@@ -10,7 +10,7 @@ const RightPart = () => {
   };
 
   return (
-    <div className="py-5 sticky top">
+    <div className="py-5 sticky top-0">
       <div className="relative flex items-center">
         <input
           type="text"

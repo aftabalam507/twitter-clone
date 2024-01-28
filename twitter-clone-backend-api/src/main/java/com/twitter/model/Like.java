@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Likes {
+public class Like {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

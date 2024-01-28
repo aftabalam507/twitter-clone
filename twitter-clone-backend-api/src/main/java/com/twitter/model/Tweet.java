@@ -1,5 +1,6 @@
 package com.twitter.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Tweet {
 	private String video;
 	
 	@OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
-	private List<Likes> likes=new ArrayList<>();
+	private List<Like> likes=new ArrayList<>();
 	
 	@OneToMany
 	private List<Tweet> replyTweets=new ArrayList<>();
@@ -44,5 +45,7 @@ public class Tweet {
 	
 	private boolean isReply;	
 	private boolean isTweet;
+	
+	private LocalDateTime createdAt;
 	
 }
