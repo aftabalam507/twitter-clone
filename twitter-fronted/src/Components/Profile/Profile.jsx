@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { Avatar, Box, Button, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import TweetCard from "../HomeSection/TweetCard";
+import ProfileModel from "./ProfileModel";
 
 const Profile = () => {
   const [tabValue, setTabValue] = useState("1");
@@ -154,6 +155,9 @@ const Profile = () => {
             <TabPanel value="4">Item Likes</TabPanel>
           </TabContext>
         </Box>
+      </section>
+      <section>
+        <ProfileModel />
       </section>
     </div>
   );
