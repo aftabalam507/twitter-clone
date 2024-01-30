@@ -7,17 +7,21 @@ import { useNavigate } from "react-router-dom";
 import { Avatar, Box, Button, Tab } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import TweetCard from "../HomeSection/TweetCard";
-import ProfileModel from "./ProfileModel";
+import ProfileModal from "./ProfileModal";
 
 const Profile = () => {
   const [tabValue, setTabValue] = useState("1");
 
   const navigate = useNavigate();
+  const [openProfileModal, setOpenProfileModal] = useState(false);
+  const handleOpenProfileModal = () => setOpenProfileModal(true);
+  const handleClose = () => setOpenProfileModal(false);
+
   const handleBack = () => navigate(-1);
 
-  const handleOpenProfileModel = () => {
-    console.log("open profile model");
-  };
+  // const handleOpenProfileModel = () => {
+  //   console.log("open profile model");
+  // };
   const handleFollowUser = () => {
     console.log("open handleFollowUser");
   };
@@ -60,9 +64,9 @@ const Profile = () => {
             sx={{ width: "10rem", height: "10rem", border: "4px solid white" }}
           />
 
-          {false ? (
+          {true ? (
             <Button
-              onClick={handleOpenProfileModel}
+              onClick={handleOpenProfileModal}
               variant="contained"
               sx={{ borderRadius: "20px" }}
             >
@@ -87,7 +91,7 @@ const Profile = () => {
                 className="ml-0 w-10 h-10 "
                 //src="https://abs.twimg.com/responsive-web/client-web/verification-card-v2@3x.8ebee01a.png"
                 src="https://images.template.net/111397/free-instagram-verified-icon-clipart-5ktr9.jpg"
-                alt=""
+                alt="verifivation-icon"
               />
             )}
           </div>
@@ -157,7 +161,7 @@ const Profile = () => {
         </Box>
       </section>
       <section>
-        <ProfileModel />
+        <ProfileModal open={openProfileModal} handleClose={handleClose} />
       </section>
     </div>
   );

@@ -4,17 +4,22 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { UploadFile, UploadFileOutlined } from "@mui/icons-material";
+import ReplyModal from "./ReplyModal";
 
 const TweetCard = () => {
   const navigate = useNavigate();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const [openReplyModal, setOpenReplyModal] = useState(false);
+  const handleOpenReplyModal = () => setOpenReplyModal(true);
+  const handleCloseReplyModal = () => setOpenReplyModal(false);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -27,10 +32,6 @@ const TweetCard = () => {
     handleClose();
   };
 
-  const handleOpenReplyModel = () => {
-    console.log("open model");
-  };
-
   const handleCreateRetweet = () => {
     console.log("handle create retweet");
   };
@@ -40,7 +41,7 @@ const TweetCard = () => {
   };
 
   return (
-    <div className="">
+    <React.Fragment>
       {/* <div className="flex items-center font-semibold text-gray-700 py-2">
         <RepeatIcon />
         <p>You Retweet</p>
@@ -72,7 +73,7 @@ const TweetCard = () => {
                 aria-controls={open ? "basic-menu" : undefined}
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
+                onClick={handleOpenReplyModal}
               >
                 <MoreHorizIcon />
               </Button>
@@ -111,7 +112,7 @@ const TweetCard = () => {
               <div className="space-x-3 flex item-center text-gray-600">
                 <ChatBubbleOutlineIcon
                   className="cursor-pointer"
-                  onClick={handleOpenReplyModel}
+                  onClick={handleOpenReplyModal}
                 />
                 <p>43</p>
               </div>
@@ -147,7 +148,7 @@ const TweetCard = () => {
               <div className="space-x-3 flex item-center text-gray-600">
                 <BarChartIcon
                   className="cursor-pointer"
-                  onClick={handleOpenReplyModel}
+                  onClick={handleOpenReplyModal}
                 />
                 <p>430</p>
               </div>
@@ -155,14 +156,17 @@ const TweetCard = () => {
               <div className="space-x-3 flex item-center text-gray-600">
                 <FileUploadIcon
                   className="cursor-pointer"
-                  onClick={handleOpenReplyModel}
+                  onClick={handleOpenReplyModal}
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <section>
+        <ReplyModal open={openReplyModal} handleClose={handleCloseReplyModal} />
+      </section>
+    </React.Fragment>
   );
 };
 
