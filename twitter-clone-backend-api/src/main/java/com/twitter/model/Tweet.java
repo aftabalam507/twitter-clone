@@ -32,7 +32,7 @@ public class Tweet {
 	private String video;
 	
 	@OneToMany(mappedBy = "tweet", cascade = CascadeType.ALL)
-	private List<Like> likes=new ArrayList<>();
+	private List<TweetLike> likes=new ArrayList<>();
 	
 	@OneToMany
 	private List<Tweet> replyTweets=new ArrayList<>();

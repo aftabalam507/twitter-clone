@@ -44,7 +44,7 @@ public class User {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "user" , cascade = CascadeType.ALL)
-	private List<Like> likes=new ArrayList<>();
+	private List<TweetLike> likes=new ArrayList<>();
 	
 	@Embedded
 	private Varification varification;
