@@ -3,9 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { navigationMenu } from "./NavigationMenu";
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../Store/Auth/Action";
 
 const Navigation = () => {
+  const { auth } = useSelector((store) => store);
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -19,6 +23,7 @@ const Navigation = () => {
   const handleLogout = () => {
     console.log("logout");
     handleClose();
+    dispatch(logOut());
   };
 
   return (
@@ -78,10 +83,12 @@ const Navigation = () => {
           />
           <div>
             <div className="font-medium">
-              <span>Aftab Alam</span>
+              <span>{auth.user?.fullName}</span>
             </div>
             <div>
-              <span className="opacity-70">@aftabalam507</span>
+              <span className="opacity-70">
+                @{auth.user?.fullName.split(" ").join("_").toLowerCase()}
+              </span>
             </div>
           </div>
           <div className="px-12">

@@ -9,7 +9,9 @@ import {
 import { blue } from "@mui/material/colors";
 import { useFormik } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
+import { registerUser } from "../../Store/Auth/Action";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required !!"),
@@ -34,6 +36,8 @@ const months = [
   { value: 12, label: "December" },
 ];
 const SignupForm = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       fullName: "",
@@ -50,6 +54,8 @@ const SignupForm = () => {
       const { day, month, year } = values.dateOfBirth;
       const dateOfBirth = `${year}-${month}-${day}`;
       values.dateOfBirth = dateOfBirth;
+
+      dispatch(registerUser(values));
       console.log("form value", values);
     },
   });
