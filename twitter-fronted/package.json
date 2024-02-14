@@ -2,6 +2,7 @@
   "name": "twitter-fronted",
   "private": true,
   "version": "0.0.0",
+  "proxy":"http://localhost:5454",
   "type": "module",
   "scripts": {
     "dev": "vite",
