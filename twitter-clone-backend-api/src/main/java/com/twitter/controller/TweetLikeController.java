@@ -30,7 +30,7 @@ public class TweetLikeController {
 	@Autowired
 	private TweetLikeService tweetLikeService;
 
-	@PostMapping("/{tweetId}/likes")
+	@PostMapping("/{tweetId}/like")
 	public ResponseEntity<TweetLikeDto> likeTweet(@PathVariable Long tweetId,
 			@RequestHeader("Authorization") String jwt) throws UserException, TweetException {
 
